@@ -1,0 +1,64 @@
+/*
+ * base.css — Variables de color, tipografía y estructura general.
+ * Para cambiar la paleta de la app, edita solo las variables de :root.
+ */
+:root {
+  --azul: #0a2c6e;          /* Azul del logo 132 SEM */
+  --azul-claro: #e8eefb;
+  --gris-fondo: #f4f6fa;
+  --gris-borde: #d5dae4;
+  --gris-texto: #5b6577;
+  --texto: #161c2a;
+  --blanco: #ffffff;
+  --rojo: #d32f2f;          /* Leyendas "sin modificaciones" y PAM baja */
+  --verde: #2e7d32;         /* PAM normal */
+  --naranja: #ef6c00;       /* PAM alta */
+  --radio: 12px;
+  --alto-nav: 62px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  background: var(--gris-fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+#app { min-height: 100dvh; display: flex; flex-direction: column; }
+
+.app-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 12px;
+  padding: calc(8px + env(safe-area-inset-top)) 16px 8px;
+  background: var(--blanco);
+  border-bottom: 2px solid var(--azul);
+}
+.app-logo { height: 38px; width: auto; }
+.app-titulo { display: flex; flex-direction: column; min-width: 0; }
+.app-titulo strong { color: var(--azul); font-size: 1rem; }
+.app-titulo span { color: var(--gris-texto); font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+#vista { flex: 1; padding: 12px 16px calc(var(--alto-nav) + 28px + env(safe-area-inset-bottom)); }
+
+.nav-inferior {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  display: flex; height: calc(var(--alto-nav) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--blanco); border-top: 1px solid var(--gris-borde);
+}
+.nav-inferior button {
+  flex: 1; border: 0; background: none; font-size: .85rem; color: var(--gris-texto);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+}
+.nav-inferior button .icono { font-size: 1.3rem; }
+.nav-inferior button.activo { color: var(--azul); font-weight: 700; }
+
+h2 { font-size: 1.15rem; margin: 18px 0 8px; color: var(--azul); }
+h3 { font-size: 1rem; margin: 14px 0 6px; }
+.texto-suave { color: var(--gris-texto); font-size: .88rem; }
+.vacio { color: var(--gris-texto); text-align: center; padding: 18px 8px; }
+.oculto { display: none !important; }
